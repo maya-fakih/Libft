@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/02 15:37:21 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/02 15:37:22 by mfakih           ###   ########.fr       */
+/*   Created: 2025/11/02 22:42:40 by mfakih            #+#    #+#             */
+/*   Updated: 2025/11/02 22:42:41 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- #include <string.h>
+#include <string.h>
 
- void *ft_memmove(void *dest, const void *src, size_t n)
- {
-	unsigned char 		*d;
-	unsigned const char *s;
-	char 				aux[n];
+int ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+    size_t i;
 
-	d = dest; 
-	s = src;
-	ft_memcpy(aux, s, n);
-	ft_memcpy(d, aux, n);
-	return (dest);
- }
-
-
-//  #include <stdio.h>
-
-//  int main()
-//  {
-// 	char s1[100] = "hello my name is maya how are you miled";
-
-// 	ft_memmove(&s1[1], &s1[3], 27);
-// 	printf("%s", s1);
-//  }
- 
+    i = 0;
+    while(s1[i] == s2[i] && s1[i] && s2[i] && i <= n)
+        i++;
+    return(s1[i] - s2[i]);
+}

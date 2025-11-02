@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/01 23:51:43 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/01 23:51:44 by mfakih           ###   ########.fr       */
+/*   Created: 2025/11/02 22:46:16 by mfakih            #+#    #+#             */
+/*   Updated: 2025/11/02 22:46:17 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "ft_strlen.c"
 
-void *ft_memset(void *s, int c, size_t n)
+char *ft_strrchr(const char *s, int c)
 {
-    size_t			i;
-	unsigned char	*p;
-
-	p = s;
-	i = 0;
-	while (i < n)
+	int	i;
+	
+    i = 0;
+	while (s[i])
+        i++;
+	while (i >= 0)
 	{
-		p[i] = c;
-		i++;
+		if (s[i] == c)
+			return ((char *)s + i);
+		i--;
 	}
-	return (s);
+	return (0);
 }

@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/01 23:51:43 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/01 23:51:44 by mfakih           ###   ########.fr       */
+/*   Created: 2025/11/02 23:48:06 by mfakih            #+#    #+#             */
+/*   Updated: 2025/11/02 23:48:08 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void *ft_memset(void *s, int c, size_t n)
+int ft_atoi(const char *str)
 {
-    size_t			i;
-	unsigned char	*p;
+	int i;
+	int sign;
+	int nb;
 
-	p = s;
 	i = 0;
-	while (i < n)
+	sign = 1;
+	nb = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <=13))
+		i++;
+	if( str[i] == '+' || str[i] == '-')
 	{
-		p[i] = c;
+		if (str[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	return (s);
+	while ((str[i] >= '0' && str[i] <= '9'))
+	{
+		nb += str[i++] - '0';
+		nb *= 10;
+	}
+	return (nb * sign);
 }
