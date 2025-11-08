@@ -6,13 +6,13 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:46:34 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/02 22:46:36 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/08 17:53:09 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if( c >= 'A' && c <= 'Z')
-        c += 32;
-    return (c);
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }

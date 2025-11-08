@@ -6,11 +6,11 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 23:00:08 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/01 23:00:10 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/08 11:24:58 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-	return (c >=0 && c <= 127);
+	return (c >= 0 && c <= 127);
 }

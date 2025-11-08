@@ -6,11 +6,11 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 23:00:58 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/01 23:01:05 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/08 11:26:35 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    return (c >=32 && c <= 127);
+	return (c >= 32 && c < 127);
 }

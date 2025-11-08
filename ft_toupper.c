@@ -6,13 +6,13 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:47:00 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/02 22:47:02 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/08 17:53:43 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    if( c >= 'a' && c <= 'z')
-        c -= 32;
-    return (c);
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }

@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/02 23:41:53 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/08 17:26:05 by mfakih           ###   ########.fr       */
+/*   Created: 2025/11/08 17:56:05 by mfakih            #+#    #+#             */
+/*   Updated: 2025/11/08 17:57:01 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
+#include <limits.h>
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t n)
+void	*calloc(size_t nmemb, size_t size)
 {
-	int	i;
-	int	j;
+	void			*result;
+	unsigned char	*res;
+	int				i;
 
 	i = 0;
-	j = 0;
-	if (*to_find == '\0')
-		return (str);
-	while (str[i] && i < n)
-	{
-		while (str[i + j] == to_find[j] && (i + j) < n && str[i + j])
-		{
-			j++;
-			if (to_find[j] == '\0')
-				return ((char *)str + i);
-		}
-		j = 0;
-		i++;
-	}
-	return (0);
+	if (nmemb * size > INT_MAX || size == 0 || nmemb == 0)
+		return (NULL);
+	result = malloc(nmemb * size);
+	if (result == NULL)
+		return (result);
+	res = (unsigned char *)result;
+	while (i < (nmemb * size))
+		res[i++] = 0;
+	return (result);
 }

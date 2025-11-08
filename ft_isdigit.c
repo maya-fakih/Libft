@@ -6,11 +6,11 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 22:40:57 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/01 22:40:58 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/08 11:26:08 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    return (c >= '0' && c <= '9');
+	return (c >= '0' && c <= '9');
 }

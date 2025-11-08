@@ -6,11 +6,11 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 22:35:55 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/01 22:35:57 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/08 11:25:41 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-    return ((c >= 'A' && c <= 'Z')|| (c >= 'a' && c <= 'z'));
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }

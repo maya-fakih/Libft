@@ -6,18 +6,18 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:42:40 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/02 22:42:41 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/08 17:21:18 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
-    while(s1[i] == s2[i] && s1[i] && s2[i] && i <= n)
-        i++;
-    return(s1[i] - s2[i]);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i] && i <= n)
+		i++;
+	return (s1[i] - s2[i]);
 }

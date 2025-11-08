@@ -6,15 +6,15 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 23:51:43 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/01 23:51:44 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/08 17:07:54 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-    size_t			i;
+	size_t			i;
 	unsigned char	*p;
 
 	p = s;
@@ -26,3 +26,10 @@ void *ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
+//  #include <stdio.h>
+
+//  int main()
+//  {
+// 	char s1[100] = "hello my name is maya how are you miled";
+// 	printf("%s", (char *) memset(s1, 48, 100));
+//  }

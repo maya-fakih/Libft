@@ -6,25 +6,35 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 00:43:28 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/02 00:43:29 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/08 17:07:07 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t					i;
-	unsigned char 			*d;
-	unsigned const	char	*s;
+	unsigned char			*d;
+	unsigned const char		*s;
 
-	i = 0; 
+	i = 0;
 	s = src;
 	d = dest;
+	if (src == NULL || dest == NULL)
+		return (NULL);
 	while (i < n)
-	{	
+	{
 		d[i] = s[i];
 		i++;
 	}
 	return (d);
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	char h[] = "hii";
+// 	char dest[] = "";
+// 	printf("%s",(char *) 	ft_memcpy(dest, h, 2));
+// }

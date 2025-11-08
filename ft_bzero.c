@@ -6,23 +6,31 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 23:54:27 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/01 23:54:28 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/08 17:04:05 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void *ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    size_t	i;
+	size_t	i;
 	char	*p;
 
-	p = s;
+	p = (char *)s;
 	i = 0;
 	while (i < n)
 	{
 		p[i] = '\0';
 		i++;
 	}
-	return (s);
 }
+
+// #include <stdio.h>
+
+// int main()
+// {
+// 	int s = 566543;
+// 	ft_bzero(&s, 8);
+// 	printf("%i", s);
+// }
