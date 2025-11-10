@@ -1,35 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/02 23:12:46 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/08 17:04:36 by mfakih           ###   ########.fr       */
+/*   Created: 2025/11/10 22:42:34 by mfakih            #+#    #+#             */
+/*   Updated: 2025/11/10 22:42:36 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+static int is_sep(char c, const char *set)
 {
-	const unsigned char	*src;
-	size_t				i;
+	int	i;
 
-	src = (unsigned char *)s;
 	i = 0;
-	while (i < n)
+	while (set[i])
 	{
-		if (src[i] == (unsigned char) c)
-			return ((char *)src + i);
+		if (set[i] == (unsigned char) c)
+			return (1);
 		i++;
 	}
 	return (0);
 }
+char *ft_strtrim(char const *s1, char const *set)
+{
+	int		i;
+	int 	j;
+	char	*result;
+
+	i = 0;
+	j = 0;
+	result = (char *)malloc(ft_strlen(s1) + 1);
+	if (!result)
+		return (NULL);
+	while (s1[i] && is_sep(s1[i],set))
+		i++;
+	while (s1[i] && !is_sep(s1[i], set))
+		result[j++] = s1[i++];
+	return (result);
+}
+
 // #include <stdio.h>
 // int main()
 // {
-// 	unsigned char c[] = "hsdfghjkjhgcxcvbn";
-// 	printf("%s", (unsigned char *)ft_memchr(c, 'f', 12));
+// 	printf("%s", ft_strtrim("hehe h h he ehe mayah", " he"));
 // }
