@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 18:30:42 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/10 18:30:46 by mfakih           ###   ########.fr       */
+/*   Created: 2025/11/12 00:58:18 by mfakih            #+#    #+#             */
+/*   Updated: 2025/11/12 00:58:22 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
-	char	*str;
+	int	i;
 
+	if (!s)
+		return ;
 	i = 0;
-	str =(char *)malloc((len + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	if (start > ft_strlen(s) - 1)
+	while (s[i] != '\0')
 	{
-		str[0] = '\0';
-		return (str);
+		(*f)(i, &s[i]);
+		i++;
 	}
-	while (s[start] && i < len)
-		str[i++] = s[start++];
-	str[i] = '\0';
-	return (str);
+	s[i] = '\0';
 }
 
+// void test(unsigned int i, char *c)
+// {
+// 	*c += i;
+// }
 // #include <stdio.h>
 // int main()
 // {
-// 	char s[]= "i dont think this is right -maha";
-// 	printf("%s", ft_substr(s, 5, 200));
+// 	char s[] = "i wanna sleep";
+// 	ft_striteri(s,test);
+// 	printf("%s", s);
 // }
+//meaningful test string is "000000" so you see the iterations working

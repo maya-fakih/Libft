@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 18:30:42 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/10 18:30:46 by mfakih           ###   ########.fr       */
+/*   Created: 2025/11/12 00:51:06 by mfakih            #+#    #+#             */
+/*   Updated: 2025/11/12 00:51:08 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	i;
-	char	*str;
+	size_t	len;
+	char	*result;
 
 	i = 0;
-	str =(char *)malloc((len + 1) * sizeof(char));
-	if (!str)
+	len = ft_strlen(s);
+	result = malloc (len + 1);
+	if (!result)
 		return (NULL);
-	if (start > ft_strlen(s) - 1)
-	{
-		str[0] = '\0';
-		return (str);
+	while (s[i])
+	{	
+		result[i] = (*f)(i, s[i]);
+		i++;
 	}
-	while (s[start] && i < len)
-		str[i++] = s[start++];
-	str[i] = '\0';
-	return (str);
+	result[i] = '\0';
+	return (result);
 }
 
+// char test(unsigned int i, char c)
+// {
+// 	return (c + i);
+// }
 // #include <stdio.h>
 // int main()
 // {
-// 	char s[]= "i dont think this is right -maha";
-// 	printf("%s", ft_substr(s, 5, 200));
+// 	printf("%s", ft_strmapi("i wanna sleep",test));
 // }
