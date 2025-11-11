@@ -32,7 +32,7 @@ int	count_words(char const *s, char c)
 	return (words);
 }
 
-static char **array_creator(char const *s, char c, char **words)
+void	array_creator(char const *s, char c, char **words)
 {
 	int	i;
 	int j;
@@ -48,16 +48,17 @@ static char **array_creator(char const *s, char c, char **words)
 		j = i;
 		while (s[j] !=c && s[j])
 			j++;
+		if (s[i] == '\0')
+			continue;
 		words[k] = malloc ((j - i + 1) * sizeof (char));
 		if (!words[k])
-			return (NULL);
+			return;
 		l = 0;
-		while (i < j)
+		while (i < j && s[i])
 			words[k][l++] = s[i++];
 		words[k++][l] = '\0';
 	}
 	words[k] = NULL;
-	return (words);
 }
 
 char	**ft_split(char const *s, char c)
@@ -67,19 +68,23 @@ char	**ft_split(char const *s, char c)
 	words = (char **)malloc((count_words(s, c) +1)* sizeof (char *));
 	if (!words)
 		return (NULL);
-	return (array_creator(s, c, words));
+	array_creator(s, c, words);
+	return (words);
 }
 
 // #include <stdio.h>
 // int main()
 // {
-// 	//printf("%i", count_words("hey its late now", 32));
-// 	char **grid = ft_split("hey   my name is maya how about you", 32);
+// 	//printf("%i", count_words("v", 32));
+// 	char **grid = ft_split("hi maya rou7e drese machinary ", 32);
 // 	int k = 0;
 // 	while (grid[k])
 // 	{
 // 		printf("%s", grid[k]);
+// 		free (grid[k]);
 // 		printf("\n");
 // 		k++;
 // 	}
+// 	free (grid[k]);
+// 	free (grid);
 // }
