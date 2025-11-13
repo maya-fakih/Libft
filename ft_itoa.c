@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static	int count_digits(int n)
+static	int	count_digits(int n)
 {
-	long num;
-	int i;
+	long	num;
+	int		i;
 
 	i = 0;
 	num = (long) n;
@@ -26,18 +26,19 @@ static	int count_digits(int n)
 		num *= -1;
 		i++;
 	}
-	while(num)
+	while (num)
 	{
 		num /= 10;
 		i++;
 	}
 	return (i);
 }
+
 char	*ft_itoa(int n)
 {
-	int	i;
-	long nb;
-	char *num;
+	int		i;
+	long	nb;
+	char	*num;
 
 	i = count_digits(n);
 	nb = n;

@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int	count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
-    int	i;
-	int words;
+	int	i;
+	int	words;
 
 	i = 0;
 	words = 0;
@@ -32,12 +32,12 @@ int	count_words(char const *s, char c)
 	return (words);
 }
 
-void	array_creator(char const *s, char c, char **words)
+static void	array_creator(char const *s, char c, char **words)
 {
 	int	i;
-	int j;
-	int k;
-	int l;
+	int	j;
+	int	k;
+	int	l;
 
 	i = 0;
 	k = 0;
@@ -46,13 +46,13 @@ void	array_creator(char const *s, char c, char **words)
 		while (s[i] == c && s[i])
 			i++;
 		j = i;
-		while (s[j] !=c && s[j])
+		while (s[j] != c && s[j])
 			j++;
 		if (s[i] == '\0')
-			continue;
+			continue ;
 		words[k] = malloc ((j - i + 1) * sizeof (char));
 		if (!words[k])
-			return;
+			return ;
 		l = 0;
 		while (i < j && s[i])
 			words[k][l++] = s[i++];
@@ -63,9 +63,9 @@ void	array_creator(char const *s, char c, char **words)
 
 char	**ft_split(char const *s, char c)
 {
-	char **words;
+	char	**words;
 
-	words = (char **)malloc((count_words(s, c) +1)* sizeof (char *));
+	words = (char **)malloc((count_words(s, c) + 1) * sizeof (char *));
 	if (!words)
 		return (NULL);
 	array_creator(s, c, words);
