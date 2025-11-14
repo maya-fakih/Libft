@@ -42,7 +42,8 @@ char	*ft_itoa(int n)
 
 	i = count_digits(n);
 	nb = n;
-	num = malloc(count_digits(n) + 1);
+	num = NULL;
+	num = (char *) ft_calloc (count_digits(n) + 1, sizeof(char));
 	if (!num)
 		return (NULL);
 	num[i--] = '\0';
@@ -55,8 +56,9 @@ char	*ft_itoa(int n)
 	}
 	while (i >= 0 && num[i] != '-')
 	{
-		num[i--] = '0' + (nb % 10);
+		num[i] = '0' + (nb % 10);
 		nb /= 10;
+		i--;
 	}
 	return (num);
 }
@@ -64,7 +66,10 @@ char	*ft_itoa(int n)
 // #include <stdio.h>
 // int main()
 // {
-// 	int n = 21474836487;
+// 	int n = 2147483648;
 // 	//printf("%i", count_digits((n)));
-// 	printf("%s", ft_itoa(n));
+// 	char *s; 
+// 	s = ft_itoa(n);
+// 	printf("%s", (s));
+// 	free(s);
 // }
