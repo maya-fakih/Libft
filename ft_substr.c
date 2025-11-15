@@ -6,7 +6,7 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:30:42 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/10 18:30:46 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/15 14:28:03 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	str = NULL;
-	if (len > ft_strlen(s) - start)
-		len = ft_strlen(s) - start;
 	if (start > ft_strlen(s))
 	{
 		str = malloc(1);
@@ -29,6 +27,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		str[0] = '\0';
 		return (str);
 	}
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
