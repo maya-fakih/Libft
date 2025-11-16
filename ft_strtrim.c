@@ -6,7 +6,7 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 22:42:34 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/16 12:43:47 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/16 13:43:59 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	calclen(char const *s1, char const *set, int	*i)
 	j = ft_strlen(s1) - 1;
 	while (s1[*i] && is_sep(s1[*i], set))
 		(*i)++;
-	while (is_sep(s1[j], set) && j >= 0)
+	while (is_sep(s1[j], set) && j >= *i)
 		j--;
 	return (j - *i + 1);
 }
@@ -54,7 +54,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	result = (char *)malloc(len + 1);
 	if (!result)
 		return (NULL);
-	while (s1[i] && j <= len)
+	while (s1[i] && j < len)
 		result[j++] = s1[i++];
 	result[len] = '\0';
 	return (result);
@@ -63,5 +63,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 // #include <stdio.h>
 // int main()
 // {
-// 	printf("%s", ft_strtrim("aaamaya fakihaaaa", "a"));
+// 	printf("%s", ft_strtrim("ababababababababababababababababa", "ba"));
 // }
