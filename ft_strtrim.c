@@ -6,7 +6,7 @@
 /*   By: mfakih <mfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 22:42:34 by mfakih            #+#    #+#             */
-/*   Updated: 2025/11/15 14:24:50 by mfakih           ###   ########.fr       */
+/*   Updated: 2025/11/16 12:43:47 by mfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !set)
+		return (NULL);
 	len = calclen(s1, set, &i);
 	result = NULL;
 	result = (char *)malloc(len + 1);
